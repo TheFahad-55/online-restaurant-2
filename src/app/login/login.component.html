@@ -1,0 +1,31 @@
+<div class="login-form">
+    <div class="content">
+        <form class="form" (submit)="onValidateUser(f)" #f="ngForm">
+            <h2 class="center-align">Login</h2> <br>
+
+            <div class="input-field col s12">
+                <input id="email" type="text" ngModel name="email" class="validate" required email #email="ngModel">
+                <label for="email">Email</label><br>
+
+            </div> <span *ngIf="email.invalid && (email.dirty || email.touched)">Please enter valid email.</span><br>
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate" ngModel name="password" required minlength="5" maxlength="100" #password="ngModel">
+                <label for="password">Password</label><br>
+                <a [routerLink]="['/forgot-password']" style="color: #f50057;">Fogot Password?</a>
+            </div><span *ngIf="password.invalid && (password.dirty || password.touched)">Password is required and must be at least 5 characters.</span><br>
+            <br>
+
+
+            <button class="button waves-effect waves-light  pink accent-3 hoverable" [disabled]="f.invalid">Login</button> <br><br>
+            <hr>
+            <button type="button" class="btn  waves-effect waves-light  pink accent-3 hoverable" style="margin-top:2rem" (click)="onTestUser()">Login as test user</button> <br><br>
+
+            <p style="font-size: 18px;"> Don't Have An Account?
+                <a [routerLink]="['/signup']" style="color: #f50057;">Create Account!</a>
+            </p>
+
+        </form>
+
+
+    </div>
+</div>

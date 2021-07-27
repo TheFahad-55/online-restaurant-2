@@ -1,0 +1,37 @@
+<div class="navbar-fixed">
+    <nav class="white">
+        <div class="nav-wrapper">
+            <a [routerLink]="['/']" class="brand-logo">FoodTiger</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down" style="margin-right:1rem">
+
+                <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}">
+                    <a [routerLink]="['/cart']" *ngIf="isLogin&&!bill">
+                        <div class="material"><i class="material-icons" style="font-size:2rem;">add_shopping_cart</i><span style="font-weight: bold;">{{count}}</span></div>
+                    </a>
+                </li>
+                <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/bill']" *ngIf="isLogin&&bill"><i class="material-icons" style="font-size:2rem;">attach_money</i></a></li>
+                <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/dishes']">Food</a></li>
+                <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/signup']" *ngIf="!isLogin">Singup</a></li>
+                <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/login']" *ngIf="!isLogin">Login</a></li>
+                <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/favourites']" *ngIf="isLogin">Favourite Food List</a></li>
+                <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/logout']" *ngIf="isLogin">Logout</a></li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
+<ul class="sidenav" id="mobile-demo">
+    <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/cart']" *ngIf="isLogin&&!bill">
+            <div class="material"><i class="material-icons" style="font-size:2rem;">add_shopping_cart</i><span style="font-weight: bold;">{{count}}</span></div>
+        </a>
+    </li>
+    <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/bill']" *ngIf="isLogin&&bill"><i class="material-icons" style="font-size:2rem;">attach_money</i></a></li>
+    <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/dishes']">Food</a></li>
+    <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/signup']" *ngIf="!isLogin">Singup</a></li>
+    <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/login']" *ngIf="!isLogin">Login</a></li>
+    <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/favourites']" *ngIf="isLogin">Favourite Food List</a></li>
+    <li routerLinkActive="actix" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/logout']" *ngIf="isLogin">Logout</a></li>
+
+</ul>

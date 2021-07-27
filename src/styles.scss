@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+.tooltip-pink {
+    --balloon-color: #f50057 !important;
+}
+
+.material-icons {
+    display: inline-flex;
+    vertical-align: top;
+}
+
+.material {
+    display: flex!important;
+}
+
+.but:hover {
+    opacity: 0.8;
+}
+
+.button {
+    width: 180px;
+    height: 60px;
+    border: none;
+    color: #fff;
+    background-color: #f50057;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}

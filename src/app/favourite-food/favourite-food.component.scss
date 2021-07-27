@@ -1,0 +1,28 @@
+.container .hards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .card {
+        width: 400px;
+        height: 300px;
+        margin-bottom: 20rem;
+    }
+}
+
+//CARDS........
+@media only screen and (max-width:768px) {
+    .hards {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width:1700px) {
+    .hards {
+        .card {
+            margin: 0 6rem;
+        }
+    }
+}

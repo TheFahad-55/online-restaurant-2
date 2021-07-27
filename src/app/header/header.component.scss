@@ -1,0 +1,24 @@
+nav a {
+    color: black;
+}
+
+.brand-logo {
+    margin-left: 1rem;
+    color: #f50057!important;
+}
+
+.brand-logo:hover {
+    border: none !important;
+}
+
+a:hover {
+    color: #f50057 !important;
+    border-bottom: 4px solid #f50057;
+}
+
+.actix {
+    a {
+        color: #f50057 !important;
+        border-bottom: 4px solid #f50057;
+    }
+}

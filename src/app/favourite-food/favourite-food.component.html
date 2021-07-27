@@ -1,0 +1,41 @@
+<div class="container" style="margin-bottom:2rem" *ngIf="!isLoading">
+    <div class="row">
+        <div class="col s12">
+            <h2 class="center-align">Favourite Food List</h2>
+            <hr style="width:200px; margin: auto;color:#f50057; border-top: 3px solid #f50057;" /> <br>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="favDishes.length<1 &&!isLoading">
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">You have no favourite food list dishes.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container center-align" style="margin-top:5rem">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+</div>
+<div class="container" *ngIf="!error &&!isLoading">
+    <div class="hards">
+        <div class="card hoverable" *ngFor="let dish of favDishes">
+            <div class="card-image">
+                <img src="{{dish.dish.imagePath}}" class="responsive-image" width="400px" height="300px">
+                <span class="card-title">{{dish.dish.name}}</span>
+            </div>
+            <div class="card-content">
+                <p>{{dish.dish.description}}</p>
+                <h5>Rs.{{dish.dish.price}}</h5>
+            </div>
+            <div class="card-action">
+                <p>PreparationTime: {{dish.dish.preparationTime}}</p><br>
+
+                <button class="btn   hoverable waves-effect waves-light" (click)="onAddToCart(dish.dish)" style="margin-right:1rem">Add To Cart</button>
+                <button class="btn red darken-4 hoverable waves-effect waves-light" (click)="onRemovefromfavourite(dish._id,dish.dish)">Remove from the list</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer *ngIf="favDishes.length>0 &&!isLoading"></app-footer>

@@ -1,0 +1,51 @@
+<div class="container" style="margin-bottom:2rem" *ngIf="!isLoading">
+    <div class="row">
+        <div class="col s12">
+            <h2 class="center-align">Cart</h2>
+            <hr style="width:200px; margin: auto;color:#f50057; border-top: 3px solid #f50057;" /> <br>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="carts.length<1 &&!isLoading">
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">Your cart is empty.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container center-align" style="margin-top:5rem">
+    <app-spinner *ngIf="isLoading"></app-spinner>
+</div>
+<div class="container" *ngIf="!error &&!isLoading">
+    <div class="hards">
+        <div class="card hoverable" *ngFor="let cart of carts">
+            <div class="card-image">
+                <img src="{{cart.dish.imagePath}}" class="responsive-image" width="400px" height="300px">
+                <span class="card-title">{{cart.dish.name}}</span>
+            </div>
+            <div class="card-content">
+                <button class="btn tooltip-pink" style="margin-right: 1rem;" (click)="onIncreaseCart(cart._id)" data-balloon-length="medium" aria-label="Increase Quantity!" data-balloon-pos="up"><i class="fas fa-plus"></i></button>
+                <button class="btn red darken-4 tooltip-pink" style="margin-right: 1rem;" (click)="onDecreaseCart(cart._id)" *ngIf="cart.quantity>1" data-balloon-length="medium" aria-label="Decrease Quantity!" data-balloon-pos="up"><i class="fas fa-minus"></i></button>
+
+                <button class="btn red darken-4" (click)="onRemoveFromCart(cart._id,cart)">Remove from cart</button>
+                <br>
+                <h5 style="font-weight: bold;">Quantity : {{cart.quantity}}</h5>
+
+            </div>
+            <div class="card-action">
+                <h5>Price per item : Rs.{{cart.dish.price}}</h5>
+                <h5 *ngIf="cart.quantity>1">Price of
+                    <span style="font-weight: bold;">{{cart.quantity}}</span> items : Rs.{{cart.dish.total}}</h5>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+<div class="center-align" *ngIf="!error &&!isLoading" style="margin:2rem 0"><button class="btn pink btn-large hoverable waves-effect waves-light" *ngIf="carts.length>0" (click)="onAddToBill()">Generate Bill</button></div>

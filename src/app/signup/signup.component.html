@@ -1,0 +1,42 @@
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <div class="container center-align" style="margin-top:5rem">
+            <app-spinner *ngIf="isLoading"></app-spinner>
+        </div>
+    </div>
+
+</div>
+
+<div class="signup-form">
+    <form class="content">
+        <form class="form" (ngSubmit)="onAddUser(f)" #f="ngForm">
+            <h2 class="center-align">Create An Account</h2> <br>
+            <div class="input-field col s12">
+                <input id="name" type="text" ngModel name="name" class="validate" required minlength="5" maxlength="30" #name="ngModel">
+                <label for="name">Name</label>
+            </div><span *ngIf="name.invalid && (name.dirty || name.touched)">Name is required and must be at least 5 characters.</span><br>
+            <div class="input-field col s12">
+                <input id="email" type="text" ngModel name="email" class="validate" required email #email="ngModel">
+                <label for="email">Email</label><br>
+
+            </div> <span *ngIf="email.invalid && (email.dirty || email.touched)">Please enter valid email.</span><br>
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate" ngModel name="password" required minlength="5" maxlength="100" #password="ngModel">
+                <label for="password">Password</label>
+
+            </div><span *ngIf="password.invalid && (password.dirty || password.touched)">Password is required and must be at least 5 characters.</span><br>
+            <div class="input-field col s12">
+                <input id="dob" type="date" class="datepicker validate" required ngModel name="dob" #dob="ngModel">
+                <label>Date Of Birth</label>
+
+            </div><span *ngIf="dob.invalid && (dob.dirty || dob.touched)">Please choose your date of birth.</span><br><br>
+            <button class="button waves-effect waves-light   pink accent-3 hoverable" [disabled]="f.invalid">Register</button> <br><br>
+            <p style="font-size: 18px;"> Alread Have An Account?
+                <a [routerLink]="['/login']" style="color: #f50057;">Login</a>
+            </p>
+
+        </form>
+
+
+    </form>
+</div>
